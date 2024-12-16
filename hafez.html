@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فال حافظ</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f7e7d3;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #b23a48;
+    }
+    .poem {
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+    .btn {
+      background-color: #b23a48;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #a22d3a;
+    }
+  </style>
+</head>
+<body>
+  <h1>فال حافظ</h1>
+  <p>روی دکمه زیر کلیک کنید تا فال خود را ببینید:</p>
+  <button class="btn" onclick="showFal()">فال بگیر</button>
+  <div class="poem" id="poem"></div>
+
+  <script>
+    const poems = [
+      { title: "غزل شماره 1", text: "الا یا ایها الساقی ادر کاسا و ناولها ..." },
+      { title: "غزل شماره 2", text: "دل می‌رود ز دستم صاحبا مددی ..." },
+      { title: "غزل شماره 3", text: "ما ز یاران چشم یاری داشتیم ..." }
+    ];
+
+    function showFal() {
+      const randomIndex = Math.floor(Math.random() * poems.length);
+      const selectedPoem = poems[randomIndex];
+      document.getElementById("poem").innerHTML = `
+        <h3>${selectedPoem.title}</h3>
+        <p>${selectedPoem.text}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
