@@ -1,60 +1,223 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فال حافظ</title>
-  <style>
-    body {
-      font-family: "Arial", sans-serif;
-      background-color: #f7e7d3;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #b23a48;
-    }
-    .poem {
-      font-size: 18px;
-      color: #333;
-      margin-top: 20px;
-      line-height: 1.8;
-    }
-    .btn {
-      background-color: #b23a48;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .btn:hover {
-      background-color: #a22d3a;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فال حافظ شب یلدا</title>
+    <link href="https://cdn.fontcdn.ir/font/vazir/vazir.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazir', sans-serif;
+            background: linear-gradient(to bottom, #fff, #ff7f50);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #ff7f50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            text-align: center;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .img-container img {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .img-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .fortune-box {
+            background-color: #fff;
+            border: 2px solid #ff7f50;
+            width: 70%;
+            margin: 30px auto;
+            padding: 30px;
+            font-size: 22px;
+            color: #4a4a4a;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            animation: slideIn 1s ease;
+        }
+
+        .fortune-box.show {
+            display: block;
+        }
+
+        button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        button:hover {
+            background-color: #e53e00;
+        }
+
+        .footer {
+            margin-top: auto;
+            font-size: 10px;
+            color: black;
+            background-color: #ff7f50;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            font-weight: normal;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .footer span {
+            font-size: 12px;
+        }
+
+        .footer p {
+            font-size: 10px;
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .img-container img {
+                width: 120px;
+                height: 120px;
+            }
+
+            button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .fortune-box {
+                width: 90%;
+                padding: 20px;
+                font-size: 18px;
+            }
+
+            .footer {
+                font-size: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>فال حافظ</h1>
-  <p>روی دکمه زیر کلیک کنید تا فال خود را ببینید:</p>
-  <button class="btn" onclick="showFal()">فال بگیر</button>
-  <div class="poem" id="poem"></div>
+    <header>
+        <h1>فال حافظ شب یلدا</h1>
+    </header>
 
-  <script>
-    const poems = [
-      { title: "غزل شماره 1", text: "الا یا ایها الساقی ادر کاسا و ناولها ..." },
-      { title: "غزل شماره 2", text: "دل می‌رود ز دستم صاحبا مددی ..." },
-      { title: "غزل شماره 3", text: "ما ز یاران چشم یاری داشتیم ..." }
-    ];
+    <div class="container">
+        <div class="img-container">
+            <img src="https://www.jowhareh.com/images/Jowhareh/galleries_2/poster_db13402f-d8a2-41bd-b263-6f637a60cce4.jpeg" alt="انار">
+            <img src="https://cdn.nody.ir/files/2024/05/30/nody-%D8%A2%D8%B1%D9%85-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C%D8%A7%D9%86-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%BE%D8%A7%D9%88%D8%B1%D9%BE%D9%88%DB%8C%D9%86%D8%AA-1717049420.png" alt="دانشگاه فرهنگیان">
+            <img src="https://cdn.baharnews.ir/images/docs/000433/n00433760-b.jpg" alt="حافظ">
+        </div>
 
-    function showFal() {
-      const randomIndex = Math.floor(Math.random() * poems.length);
-      const selectedPoem = poems[randomIndex];
-      document.getElementById("poem").innerHTML = `
-        <h3>${selectedPoem.title}</h3>
-        <p>${selectedPoem.text}</p>
-      `;
-    }
-  </script>
+        <button onclick="getRandomFortune()"> نیت کن و بعد کلیک کن :) </button>
+
+        <div class="fortune-box" id="fortune-box">
+            <div id="fortune-text">منتظر فال حافظ باشید...</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>ساخته شده توسط <span>مبینا رهی</span></p>
+    </div>
+
+    <script>
+        const fortunes = [
+            "دلتنگی و غم، ولی خوشبختی در راه است. کمی صبر کن.",
+            "در دل خود ایمان داشته باش و به آرزوهایت برس.",
+            "امروز بهترین روز برای شروع یک پروژه جدید است.",
+            "دوستی و محبت در این روزها به تو برکت می‌دهد.",
+            "به زودی خبری خوش از کسی که منتظرش بودی به گوش می‌رسد.",
+            "با تلاش و پشتکار به آرزوهای خود خواهی رسید.",
+            "لحظه‌ای از عشق غافل نشو، زیرا قلب تو در جستجوی آن است.",
+            "در کنار خانواده و دوستانت به شادی و آرامش می‌رسی.",
+            "مراقب قلبت باش، زیرا احساسات تو در این روزها عمیق‌تر از همیشه‌اند.",
+            "در مسیر زندگی، همیشه به جلو برو، حتی اگر دردی باشد."
+        ];
+
+        function getRandomFortune() {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const fortuneText = fortunes[randomIndex];
+
+            const fortuneBox = document.getElementById('fortune-box');
+            const fortuneTextElement = document.getElementById('fortune-text');
+            
+            fortuneTextElement.innerHTML = fortuneText;
+            fortuneBox.classList.add('show');
+        }
+    </script>
 </body>
 </html>
